@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="chengdh" />
+	<meta name="keywords" content="物流,软件,系统" />
+	<meta name="description" content="基于互联网的第三方物流管理系统" />
+	<meta name="robots" content="all" />
+	<title>IL智能物流平台</title>
+	<!-- to correct the unsightly Flash of Unstyled Content. http://www.bluerobot.com/web/css/fouc.asp -->
+	<script type="text/javascript"></script>
+</head>
+<body onload="window.defaultStatus='IL智能物流平台';" id="il_smart_platform">
+<div id="container">
+	<div id="pageHeader">
+		<h1>河南公交物流有限公司</h1> 
+		<ul>
+			<li id="userInfo"><a href="#">登录人</a></li>	
+			<li class="seprate"><span>|</span></li>	
+			<li id="help"><a href="#">帮助</a></li>	
+			<li class="seprate"><span>|</span></li>	
+			<li id="logOut"><a href="#">退出</a></li>	
+		</ul>
+	</div>
+	<div id="searchForm">
+		<input type='text' />
+		<button id="btnSearch">搜索</button>
+		<span  class="seprate">|</span>
+		<button id="btnAdvSearch">高级搜索</button>
+	</div>
+	<!--高级查询显示的DIV  -->
+	<div id="adv_searchForm"></div>
+	<div id="menuList">
+	 	<ul>
+			<li id="dashBorad"><a href="#">业务看板</a></li>
+			<li id="carryingBill_list"><a href="#">运单列表</a></li>
+			<li id="loadBill_list"><a href="#">装车单</a></li>
+			<li id="returnBill_list"><a href="#">对账单</a></li>
+			<li id="payBill_list"><a href="#">货款支付</a></li>
+			<li id="baseInfo_list"><a href="#">基础信息设置</a></li>
+			<li id="user_power"><a href="#">权限管理</a></li>
+		</ul>
+	</div>	
+	<div id="content">
+		<div>
+			<div id="toolbarTop">
+				<p class="btnWrap">
+					<button id="btnDel_top">删除</button>
+					<select id="selectBill_top"><option>单据操作</option></select>
+					<select id="selectTag_top"><option>标记单据</option></select>
+					<a id="refresh_top" href="#">刷新</a>
+				</p>
+				<p class="pageNavigate_top">第一页 下一页 最后一页</p>
+				<p class="billSelectWrap">
+					选择:
+					<span id="selAll_top">全部,</span>
+					<span id="selNone_top">无,</span>
+					<span id="selStar_top">已加星标,</span>
+					<span id="selNonStar_top">未加星标,</span>
+					<span id="selCash_top">现金付,</span>
+					<span id="selArrive_top">提付,</span>
+					<span id="selReturn_top">回付</span>
+				</p>
+			</div>
+			<div id="billList_wrap">
+				<table>
+					<tr>
+						<td><input type="checkbox"/><td>
+						<td><span class="start">星标</span><td>
+						<td><span class="billNo">20090122080001</span></td>
+						<td>
+							<span class="billState">已装车</span>
+							<span class="tag">张三</span>
+							<span class="tag">李四</span>
+							<span class="billTitle">
+								郑州(王小二123457888)~北京(李小三13676997527)
+							</span>
+							<span class="payType">现金付</span>
+						</td>
+						<td><span class="billDetail">运费:200.00,货款:2000.00,100件,轮胎</span></td>
+						<td><span class="billDate">2009年2月8日</span></td>
+					</tr>
+				</table>
+			</div>
+			<div id="toolbarBottom">
+				<p class="btnWrap">
+					<button id="btnDel_bottom">删除</button>
+					<select id="selectBill_bottom"><option>单据操作</option></select>
+					<select id="selectTag_bottom"><option>标记单据</option></select>
+					<a id="refresh_bottom" href="#">刷新</a>
+				</p>
+				<p class="pageNavigate_bottom">第一页 下一页 最后一页</p>
+				<p class="billSelectWrap">
+					选择:
+					<span id="selAll_bottom">全部,</span>
+					<span id="selNone_bottom">无,</span>
+					<span id="selStar_bottom">已加星标,</span>
+					<span id="selNonStar_bottom">未加星标,</span>
+					<span id="selCash_bottom">现金付,</span>
+					<span id="selArrive_bottom">提付,</span>
+					<span id="selReturn_bottom">回付</span>
+				</p>
+			</div>
+		</div>	
+	</div>
+	<div id="footer">
+		<ul>
+			<li id="copyRight"><span>copyright 2009 </span><a href="#">创艺公司</a></li>
+			<li id="forum"><a href="#">论坛</a></li>
+			<li class="seprate">|</li>
+			<li id="about"><a href="#">关于</a></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
+
