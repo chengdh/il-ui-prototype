@@ -10,50 +10,59 @@
 	<title>IL智能物流平台</title>
 	<!-- to correct the unsightly Flash of Unstyled Content. http://www.bluerobot.com/web/css/fouc.asp -->
 	<script type="text/javascript"></script>
+	<link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection"/> 
+	<link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print"/> 
+	<!--[if IE]> 
+    <link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection"/> 
+	<![endif]-->
 </head>
 <body onload="window.defaultStatus='IL智能物流平台';" id="il_smart_platform">
-<div id="container">
+<div id="container" class="container showgrid">
 	<div id="pageHeader">
-		<h1 id="company">河南公交物流有限公司</h1> 
-		<ul>
-			<li id="userInfo"><a href="#">登录人</a></li>	
-			<li class="seprate"><span>|</span></li>	
-			<li id="help"><a href="#">帮助</a></li>	
-			<li class="seprate"><span>|</span></li>	
-			<li id="logOut"><a href="#">退出</a></li>	
-		</ul>
+		<div id="company" class="span-10"><h1><span>河南公交物流有限公司</span></h1> </div>
+		<div id="logInfo" class="span-8 push-6 last">
+			<ul>
+				<li id="userInfo"><span><a href="#">登录人</a></span></li>	
+				<li><span class="seprate">|</span></li>	
+				<li id="help"><span><a href="#">帮助</a></span></li>	
+				<li ><span class="seprate">|</span></li>	
+				<li id="logOut"><span><a href="#">退出</a></span></li>	
+			</ul>
+		</div>
 	</div>
-	<div id="searchForm">
-		<input type='text' />
+	
+	<div id="searchForm" class="span-10 prepend-7 append-7 last">
+		<input id="input_keyword" type='text' />
 		<button id="btnSearch">搜索</button>
-		<span  class="seprate">|</span>
 		<button id="btnAdvSearch">高级搜索</button>
 	</div>
 	<!--高级查询显示的DIV  -->
-	<div id="adv_searchForm"></div>
-	<div id="menuList">
+	<div id="adv_searchForm" class="span-24 last"></div>
+	
+	<div id="menuList" class="span-4">
 	 	<ul>
-			<li id="dashBorad"><a href="#">业务看板</a></li>
-			<li id="carryingBill_list"><a href="#">运单列表</a></li>
-			<li id="loadBill_list"><a href="#">装车单</a></li>
-			<li id="returnBill_list"><a href="#">对账单</a></li>
-			<li id="payBill_list"><a href="#">货款支付</a></li>
-			<li id="baseInfo_list"><a href="#">基础信息设置</a></li>
-			<li id="user_power"><a href="#">权限管理</a></li>
+			<li id="dashBorad"><span><a href="#">业务看板</a></span></li>
+			<li id="carryingBill_list"><span><a href="#">运单列表</a></span></li>
+			<li id="loadBill_list"><span><a href="#">装车单</a></span></li>
+			<li id="returnBill_list"><span><a href="#">对账单</a></span></li>
+			<li id="payBill_list"><span><a href="#">货款支付</a></span></li>
+			<li id="baseInfo_list"><span><a href="#">基础信息设置</a></span></li>
+			<li id="user_power"><span><a href="#">权限管理</a></span></li>
 		</ul>
 	</div>	
-	<div id="content">
-		<div>
+	
+	<div id="content" class="span-20 last">
+		<div id="billList_wrap">
 			<div id="toolbarTop">
-				<p class="btnWrap">
+				<div class="btnWrap span-15">
 					<button id="btnDel_top">删除</button>
 					<select id="selectBill_top"><option>单据操作</option></select>
 					<select id="selectTag_top"><option>标记单据</option></select>
 					<a id="refresh_top" href="#">刷新</a>
-				</p>
-				<p class="pageNavigate_top">第一页 下一页 最后一页</p>
-				<p class="billSelectWrap">
-					选择:
+				</div>
+				<div class="pageNavigate span-5 last">第一页 下一页 最后一页</div>
+				<div class="billSelectWrap span-20 last">
+					<span>选择:</span>
 					<span id="selAll_top">全部,</span>
 					<span id="selNone_top">无,</span>
 					<span id="selStar_top">已加星标,</span>
@@ -61,9 +70,10 @@
 					<span id="selCash_top">现金付,</span>
 					<span id="selArrive_top">提付,</span>
 					<span id="selReturn_top">回付</span>
-				</p>
+				</div>
 			</div>
-			<div id="billList_wrap">
+			
+			<div id="billList_table" class="span-20 last">
 				<table>
 					<tr>
 						<td><input type="checkbox"/><td>
@@ -83,16 +93,11 @@
 					</tr>
 				</table>
 			</div>
+			
 			<div id="toolbarBottom">
-				<p class="btnWrap">
-					<button id="btnDel_bottom">删除</button>
-					<select id="selectBill_bottom"><option>单据操作</option></select>
-					<select id="selectTag_bottom"><option>标记单据</option></select>
-					<a id="refresh_bottom" href="#">刷新</a>
-				</p>
-				<p class="pageNavigate_bottom">第一页 下一页 最后一页</p>
-				<p class="billSelectWrap">
-					选择:
+				
+				<div class="billSelectWrap span-20 last">
+					<span>选择:</span>
 					<span id="selAll_bottom">全部,</span>
 					<span id="selNone_bottom">无,</span>
 					<span id="selStar_bottom">已加星标,</span>
@@ -100,19 +105,32 @@
 					<span id="selCash_bottom">现金付,</span>
 					<span id="selArrive_bottom">提付,</span>
 					<span id="selReturn_bottom">回付</span>
-				</p>
-			</div>
+				</div>
+				<div class="btnWrap span-15"">
+					<button id="btnDel_bottom">删除</button>
+					<select id="selectBill_bottom"><option>单据操作</option></select>
+					<select id="selectTag_bottom"><option>标记单据</option></select>
+					<a id="refresh_bottom" href="#">刷新</a>
+				</div>
+				<div class="pageNavigate span-5 last">第一页 下一页 最后一页</div>
+			</div>	
 		</div>	
 	</div>
-	<div id="footer">
+	<div id="footer" class="span-24 last">
 		<ul>
-			<li id="copyRight"><span>copyright 2009 </span><a href="#">创艺公司</a></li>
-			<li id="forum"><a href="#">论坛</a></li>
-			<li class="seprate">|</li>
-			<li id="about"><a href="#">关于</a></li>
+			<li id="copyRight"><span>copyright 2009<a href="#">创艺公司</a></span></li>
+			<li id="forum"><span><a href="#">论坛</a></span></li>
+			<li><span class="seprate">|</span></li>
+			<li id="about"><span><a href="#">关于</a></span></li>
 		</ul>
 	</div>
 </div>
+<div id="extraDiv1"><span></span></div>
+<div id="extraDiv2"><span></span></div>
+<div id="extraDiv3"><span></span></div>
+<div id="extraDiv4"><span></span></div>
+<div id="extraDiv5"><span></span></div>
+<div id="extraDiv6"><span></span></div>
 </body>
 </html>
 
