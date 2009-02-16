@@ -15,44 +15,117 @@
 	<!--[if IE]> 
     <link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection"/> 
 	<![endif]-->
+	<style type="text/css">
+		/*--type.css--*/
+		ul 
+		{
+			list-style : none;
+		}
+		#footer
+		{
+			text-align : center;
+		}
+		/*公司名称的字体大小*/
+		#companyLogo
+		{
+			width : 	50px;
+			height : 	40px;
+			border : 	1px solid #000000;
+		}
+		#company h1
+		{
+			font-size : 1.5em;
+			
+		}
+		/*内容区标题的字体大小*/
+		h2.title
+		{
+			font-size : 1.2em;
+		}
+		
+		/*--layout.css--*/
+		#pageHeader
+		{
+			padding-top : 5px;
+		}
+		#logInfo li 
+		{
+			float : left;
+			padding-right : 5px;
+		}
+		#footer li
+		{
+			float : left;
+		}
+		#footer #forum,#footer #about
+		{
+			float : right;
+			padding-right : 5px;
+		}
+		
+		
+		/*--color.css--*/
+		#container
+		{
+			background-color : #EBEBEB;
+		}
+		#pageHeader
+		{
+			background-color : #CCE5EB;
+		}
+		
+		
+		
+	</style>
 </head>
-<body onload="window.defaultStatus='IL智能物流平台';" id="il_smart_platform">
-<div id="container" class="container showgrid">
-	<div id="pageHeader">
-		<div id="company" class="span-10"><h1><span>河南公交物流有限公司</span></h1> </div>
-		<div id="logInfo" class="span-8 push-6 last">
+<body  id="il_smart_platform">
+<div id="container" class="container">
+	<div id="pageHeader" class="span-24">
+		<div id="company" class="span-18">
+			<div id="companyLogo" class="span-2">
+				公司图标
+				<img />
+			</div>
+			<h1>
+				<span>XXXX第三方物流有限公司</span>
+			</h1>
+		</div>
+		<div id="logInfo" class="span-6 last">
 			<ul>
-				<li id="userInfo"><span><a href="#">登录人</a></span></li>	
+				<li id="userInfo"><a href="#"><span>登录人</span></a></li>	
 				<li><span class="seprate">|</span></li>	
-				<li id="help"><span><a href="#">帮助</a></span></li>	
+				<li id="help"><a href="#"><span>帮助</span></a></li>	
 				<li ><span class="seprate">|</span></li>	
-				<li id="logOut"><span><a href="#">退出</a></span></li>	
+				<li id="logOut"><a href="#"><span>退出</span></a></li>	
 			</ul>
 		</div>
 	</div>
-	
+	<hr />
 	<div id="searchForm" class="span-10 prepend-7 append-7 last">
 		<input id="input_keyword" type='text' />
-		<button id="btnSearch">搜索</button>
+		<button id="btnSearch">搜索|其他</button>
 		<button id="btnAdvSearch">高级搜索</button>
 	</div>
 	<!--高级查询显示的DIV  -->
-	<div id="adv_searchForm" class="span-24 last"></div>
+	<div id="adv_searchForm" class="span-24"></div>
+	
+	<div id="flash" class="prepend-4 span-20 last">&nbsp</div>
 	
 	<div id="menuList" class="span-4">
 	 	<ul>
-			<li id="dashBorad"><span><a href="#">业务看板</a></span></li>
-			<li id="carryingBill_list"><span><a href="#">运单列表</a></span></li>
-			<li id="loadBill_list"><span><a href="#">装车单</a></span></li>
-			<li id="returnBill_list"><span><a href="#">对账单</a></span></li>
-			<li id="payBill_list"><span><a href="#">货款支付</a></span></li>
-			<li id="baseInfo_list"><span><a href="#">基础信息设置</a></span></li>
-			<li id="user_power"><span><a href="#">权限管理</a></span></li>
+			<li id="dashBoard"><a href="#"><span>业务看板</span></a></li>
+			<li id="carryingBill_list"><a href="#"><span>运单列表</span></a></li>
+			<li id="loadBill_list"><a href="#"><span>装车单</span></a></li>
+			<li id="returnBill_list"><a href="#"><span>对账单</span></a></li>
+			<li id="payBill_list"><a href="#"><span>货款支付</span></a></li>
+			<li id="baseInfo_list"><a href="#"><span>基础信息设置</span></a></li>
+			<li id="user_power"><a href="#"><span>权限管理</span></a></li>
 		</ul>
 	</div>	
 	
 	<div id="content" class="span-20 last">
-		<div id="billList_wrap">
+		<h2 class="title">运单列表</h2>
+		<div id="billList_wrap" class="box">
 			<div id="toolbarTop">
 				<div class="btnWrap span-15">
 					<button id="btnDel_top">删除</button>
@@ -91,6 +164,20 @@
 						<td><span class="billDetail">运费:200.00,货款:2000.00,100件,轮胎</span></td>
 						<td><span class="billDate">2009年2月8日</span></td>
 					</tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
+					<tr><td/></tr>
 				</table>
 			</div>
 			
@@ -106,7 +193,7 @@
 					<span id="selArrive_bottom">提付,</span>
 					<span id="selReturn_bottom">回付</span>
 				</div>
-				<div class="btnWrap span-15"">
+				<div class="btnWrap span-15">
 					<button id="btnDel_bottom">删除</button>
 					<select id="selectBill_bottom"><option>单据操作</option></select>
 					<select id="selectTag_bottom"><option>标记单据</option></select>
@@ -114,14 +201,14 @@
 				</div>
 				<div class="pageNavigate span-5 last">第一页 下一页 最后一页</div>
 			</div>	
+			<div class="clear"></div>
 		</div>	
 	</div>
-	<div id="footer" class="span-24 last">
+	<div id="footer" class="span-24">
 		<ul>
-			<li id="copyRight"><span>copyright 2009<a href="#">创艺公司</a></span></li>
-			<li id="forum"><span><a href="#">论坛</a></span></li>
-			<li><span class="seprate">|</span></li>
-			<li id="about"><span><a href="#">关于</a></span></li>
+			<li id="copyRight"><span>copyright 2009<span><a href="#"><span>创艺公司</span></a></li>
+			<li id="forum"><a href="#"><span>论坛</span></a></li>
+			<li id="about"><a href="#"><span>关于</span></a></li>
 		</ul>
 	</div>
 </div>
