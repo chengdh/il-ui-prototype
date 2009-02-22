@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="chengdh" />
+	<meta name="keywords" content="物流,软件,系统" />
+	<meta name="description" content="基于互联网的第三方物流管理系统" />
+	<meta name="robots" content="all" />
+	<title>IL智能物流平台</title>
+	<!-- to correct the unsightly Flash of Unstyled Content. http://www.bluerobot.com/web/css/fouc.asp -->
+	<script type="text/javascript"></script>
+	<link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection"/> 
+	<link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print"/> 
+	<!--[if IE]> 
+    <link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection"/> 
+	<![endif]-->
+	<style type="text/css">
+		/*--------------------------------type.css---------------------------*/
+		ul 
+		{
+			list-style : none;
+		}
+		#footer
+		{
+			text-align : center;
+		}
+		/*公司名称的字体大小*/
+		#companyLogo
+		{
+			width : 	50px;
+			height : 	40px;
+			border : 	1px solid #000000;
+		}
+		#company h1
+		{
+			font-size : 1.5em;
+			
+		}
+		/*左侧菜单的字体大小*/
+		#menuList
+		{
+			font-size	: 1.2em;
+		}
+		/*内容区标题的字体大小*/
+		h2.title
+		{
+			font-size : 1.2em;
+		}
+		#billList_table table td
+		{
+			height : 1.8em;
+		}
+		
+		/*---------------------layout.css------------------------------------*/
+		
+		/*内容区标题的样式*/
+		h2.title
+		{
+			padding : 5px;;
+		}
+		
+		#pageHeader
+		{
+			padding-top : 5px;
+		}
+		#logInfo li 
+		{
+			float : right;
+			padding-right : 5px;
+		}
+		/*左侧菜单的上下间距*/
+		#menuList li
+		{
+			padding : 1px;
+			margin-bottom : 5px;
+		}
+		#footer li
+		{
+			float : left;
+		}
+		#footer #forum,#footer #about
+		{
+			float : right;
+			padding-right : 5px;
+		}
+		#billList_table table
+		{
+			border : 1px solid gray;
+		}
+		#billList_table table td
+		{
+			border-bottom : 1px solid gray;
+		}
+		/*操作按钮的样式*/
+		div.btnWrap
+		{
+			float : left;
+		}
+		div.pageNavigate
+		{
+			float : right;
+		}
+		/*上下工具栏的外边框*/
+		.toolbar,#billList_table,#bill_form
+		{
+			margin-top : 0;
+			margin-bottom : 0;
+		}
+		/*工具栏上的一些说明性文字，一般右对齐*/
+		.toolbar .highlight
+		{
+			float : right;
+		
+		}		
+		/*---------------------color.css-----------------------------------*/
+
+		.title
+		{
+			background-color : #CCE5EB;
+		}
+		/*当前活动菜单*/
+		.active
+		{
+			background-color : #CCE5EB;
+		}
+		.toolbar
+		{
+			background-color : #C3D9FF;
+		}
+		
+		/*必须填项的文字颜色*/
+		.required
+		{
+			color : red;
+		}
+		
+		
+	</style>
+</head>
+<body  id="il_smart_platform">
+<div id="container" class="container">
+	<!-- 弹出窗口使用的DIV -->
+	<div id="popup" class="span-24">
+		<!-- 运单批量装车弹出窗口 -->
+		<ul class="tabs">
+			<li><a href="#"><span>新装车单</span></a></li>
+			<li><a href="#"><span>查询装车单</span></a></li>
+		</ul>
+		<div id="loadBill_form">
+			<table>
+				<tr>
+					<td><label>单据日期</label></td>
+					<td><input type='text'/></td>
+					<td><label>单据号</label></td>
+					<td><input type='text'/></td>
+				</tr>
+				<tr>
+					<td><label class="required">发货地*</label></td>
+					<td><input type='text'/></td>
+					<td><label class="required">到货地*</label></td>
+					<td><input type='text'/></td>
+				</tr>
+				<tr>
+					<td><label class="required">车牌号*</label></td>
+					<td><input type='text'/></td>
+					<td><label>司机</label></td>
+					<td><input type='text'/></td>
+				</tr>
+	
+				<tr>
+					<td><label>备注</label></td>
+					<td colspan="3"><textarea></textarea></td>
+				</tr>
+			</table>
+			<div class="box clearfix toolbar">	
+				<div class="btnWrap">
+					<button>保存</button>
+					<button>取消</button>
+				</div>
+				<span class="highlight">当前选中20张单据,运费1000.00，货款20000.00，货物389件，保存装车单后，选中运单状态变为[已装车]，可在装车单列表中对单据进行后续操作</span>
+			</div>
+		</div>
+		
+		<div id="search_loadBill">
+			<table>
+				<tr>
+					<td><label>单据日期</label></td>
+					<td>
+						<input type='text'/>
+						~
+						<input type='text'/>
+					</td>
+					<td><label>关键字</label></td>
+					<td><input type='text' value="单据号或车牌号"/></td>
+				</tr>
+				<tr>
+					<td><label>发货地</label></td>
+					<td>
+						<input type='text'/>
+						~
+						<input type='text'/>
+					</td>
+					<td><button>查询</button></td>
+				</tr>
+			</table>
+			<hr/>
+			<div id="loadBill_list" class="box clear">	
+				<table>
+					<thead>
+						<th>
+							单据号
+						</th>
+						<th>
+							车牌号/司机
+						</th>
+						<th>
+							货物信息
+						</th>
+						<th>
+							装车日期
+						</th>
+						
+					</thead>
+					<tr>
+						<td>
+							2009897898
+						</td>
+						<td>
+							豫A 12345/张三
+						</td>
+						<td>
+							共计389件,运费234.00，代收货款5000.00
+						</td>
+						<td>
+							2009年12月12日
+						</td>
+						
+					</tr>
+					<tr>
+						<td>
+							2009897898
+						</td>
+						<td>
+							豫A 12345/张三
+						</td>
+						<td>
+							共计389件,运费234.00，代收货款5000.00
+						</td>
+						<td>
+							2009年12月12日
+						</td>
+						
+					</tr>
+					<tr>
+						<td>
+							2009897898
+						</td>
+						<td>
+							豫A 12345/张三
+						</td>
+						<td>
+							共计389件,运费234.00，代收货款5000.00
+						</td>
+						<td>
+							2009年12月12日
+						</td>
+						
+					</tr>
+					<tr>
+						<td>
+							2009897898
+						</td>
+						<td>
+							豫A 12345/张三
+						</td>
+						<td>
+							共计389件,运费234.00，代收货款5000.00
+						</td>
+						<td>
+							2009年12月12日
+						</td>
+						
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+

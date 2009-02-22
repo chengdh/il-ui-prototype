@@ -1,18 +1,32 @@
-Link Icons
-* Icons for links based on protocol or file type.
+Buttons
 
-This is not supported in IE versions < 7.
+* Gives you great looking CSS buttons, for both <a> and <button>.
+* Demo: particletree.com/features/rediscovering-the-button-element
 
 
 Credits
 ----------------------------------------------------------------
 
-* Marc Morgan
-* Olav Bjorkoy  [bjorkoy.com]
+* Created by Kevin Hale [particletree.com]
+* Adapted for Blueprint by Olav Bjorkoy [bjorkoy.com]
 
 
 Usage
 ----------------------------------------------------------------
 
-1) Add this line to your HTML:
-	 <link rel="stylesheet" href="css/blueprint/plugins/link-icons/screen.css" type="text/css" media="screen, projection">	
+1) Add this plugin to lib/settings.yml.
+   See compress.rb for instructions.
+
+2) Use the following HTML code to place the buttons on your site:
+
+	<button type="submit" class="button positive">
+	  <img src="css/blueprint/plugins/buttons/icons/tick.png" alt=""/> Save
+	</button>
+
+	<a class="button" href="/password/reset/">
+	  <img src="css/blueprint/plugins/buttons/icons/key.png" alt=""/> Change Password
+	</a>
+
+	<a href="#" class="button negative">
+	  <img src="css/blueprint/plugins/buttons/icons/cross.png" alt=""/> Cancel
+	</a>

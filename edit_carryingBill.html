@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="blueprint/ie.css" type="text/css" media="screen, projection"/> 
 	<![endif]-->
 	<style type="text/css">
-		/*--type.css--*/
+		/*--------------------------------type.css---------------------------*/
 		ul 
 		{
 			list-style : none;
@@ -52,12 +52,14 @@
 			height : 1.8em;
 		}
 		
-		/*--layout.css--*/
+		/*---------------------layout.css------------------------------------*/
+		
 		/*内容区标题的样式*/
 		h2.title
 		{
 			padding : 5px;;
 		}
+		
 		#pageHeader
 		{
 			padding-top : 5px;
@@ -100,13 +102,18 @@
 			float : right;
 		}
 		/*上下工具栏的外边框*/
-		.toolbar,#billList_table
+		.toolbar,#billList_table,#bill_form
 		{
 			margin-top : 0;
 			margin-bottom : 0;
 		}
+		/*工具栏上的一些说明性文字，一般右对齐*/
+		.toolbar .highlight
+		{
+			float : right;
 		
-		/*--color.css--*/
+		}		
+		/*---------------------color.css-----------------------------------*/
 
 		.title
 		{
@@ -122,7 +129,11 @@
 			background-color : #C3D9FF;
 		}
 		
-		
+		/*必须填项的文字颜色*/
+		.required
+		{
+			color : red;
+		}
 		
 	</style>
 </head>
@@ -174,87 +185,123 @@
 	</div>	
 	
 	<div id="content" class="span-20  last">
-		<h2 class="title bottom">运单列表</h2>
+		<h2 class="title bottom">
+			修改运单
+			<span class="quiet">(保存单据后，可以对单据进行
+						<strong>装车</strong>
+						<strong>到货确认</strong>
+						<strong>对账</strong>
+						<strong>货款支付</strong>
+						<strong>标记</strong>
+						操作)
+					</span>
+		</h2>
 		<div id="operateArea_wrap">
-			<div  class="clearfix box toolbar">
+			<div   class="clearfix box toolbar">
 				<div class="btnWrap">
+					<button id="btnSave_top">保存</button>
 					<button id="btnDel_top">删除</button>
 					<select id="selectBill_top"><option>单据操作</option></select>
 					<select id="selectTag_top"><option>标记单据</option></select>
-					<a id="refresh_top" href="#">刷新</a>
-					<a id="exportExcel_top" href="#">excel</a>
-				</div>
-				<div class="pageNavigate">第一页 下一页 最后一页</div>
-				<div class="clear">
-					<span>选择:</span>
-					<span id="selAll_top">全部,</span>
-					<span id="selNone_top">无,</span>
-					<span id="selStar_top">已加星标,</span>
-					<span id="selNonStar_top">未加星标,</span>
-					<span id="selCash_top">现金付,</span>
-					<span id="selArrive_top">提付,</span>
-					<span id="selReturn_top">回付</span>
-				</div>
+					<a id="refresh_top" href="#">刷新</a>					
+				</div>	
+						<span class="highlight"><span class="required">&nbsp;*&nbsp;</span>为必填项目</span>
 			</div>
 			
-			<div id="billList_table" class="box clear">
+			<form id="bill_form" action="/" class="box clear">
 				<table>
 					<tr>
-						<td>
-							<a href="#">删除</a>
-							<a href="#">修改</a>
-						</td>
-						<td><input type="checkbox"/></td>
-						<td><span class="start">星标</span></td>
-						<td><span class="billNo">20090122080001</span></td>
-						<td>
-							<span class="billState">已装车</span>
-							<span class="tag">张三</span>
-							<span class="tag">李四</span>
-							<span class="billTitle">
-								郑州(王小二123457888)~北京(李小三13676997527)
-							</span>
-							<span class="payType">现金付</span>
-						</td>
-						<td><span class="billDetail">运费:200.00,货款:2000.00,100件,轮胎</span></td>
-						<td><span class="billDate">2009年2月8日</span></td>
+						<td><label>单据日期</label></td>
+						<td><input type='text'/></td>
+						<td><label>单据号</label></td>
+						<td><input type='text'/></td>
 					</tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
-					<tr><td colspan="20"/></tr>
+					<tr>
+						<td><label class="required">发货地*</label></td>
+						<td><input type='text'/></td>
+						<td><label class="required">到货地*</label></td>
+						<td><input type='text'/></td>
+					</tr>
+					<tr>
+						<td><label class="required">发货人*</label></td>
+						<td><input type='text'/></td>
+						<td><label>电话</label></td>
+						<td><input type='text'/></td>
+					</tr>
+					<tr>
+						<td><label class="required">收货人*</label></td>
+						<td><input type='text'/></td>
+						<td><label>电话</label></td>
+						<td><input type='text'/></td>
+					</tr>
+					<tr>
+						<td><label>付款方式</label></td>
+						<td>
+							<select>
+								<option>现金</option>
+								<option>提付</option>
+								<option>回付</option>
+								<option>月结</option>
+							</select>
+						</td>
+						<td><label>运费</label></td>
+						<td><input type='text'/></td>
+					</tr>
+					<tr>
+						<td><label>代收货款</label></td>
+						<td><input type='text'/></td>
+						<td><label>提货方式</label></td>
+						<td>
+							<select>
+								<option>自提</option>
+								<option>送货</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label>货物件数</label></td>
+						<td><input type='text'/></td>
+						<td><label>业务员</label></td>
+						<td><input type='text'/></td>
+					</tr>
+					<tr>
+						<td><label>货物信息</label></td>
+						<td colspan="3"><textarea></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="4"><a href="#">外转信息</a></td>
+					</tr>
+					<tr>
+						<td><label>外转公司</label></td>
+						<td colspan="3"><input type="text"/></td>
+					</tr>
+					<tr>
+						<td><label>外转单号</label></td>
+						<td><input type="text"/></td>
+						<td><label>外转日期</label></td>
+						<td><input type='text'/></td>
+					</tr>
+					<tr>
+						
+						<td><label>外转运费</label></td>
+						<td><input type='text'/></td>
+						<td><label>经办人</label></td>
+						<td><input type='text'/></td>
+					</tr>
+					
+	
 				</table>
-			</div>
+			</form>
 			
-			<div  class="box clearfix toolbar">
-				<div class="clear">
-					<span>选择:</span>
-					<span id="selAll_bottom">全部,</span>
-					<span id="selNone_bottom">无,</span>
-					<span id="selStar_bottom">已加星标,</span>
-					<span id="selNonStar_bottom">未加星标,</span>
-					<span id="selCash_bottom">现金付,</span>
-					<span id="selArrive_bottom">提付,</span>
-					<span id="selReturn_bottom">回付</span>
-				</div>
-				<div class="btnWrap">
+			<div  class="box clearfix toolbar">	
+				<div class="btnWrap">	
+					<button id="btnSave_bottom">保存</button>
 					<button id="btnDel_bottom">删除</button>
 					<select id="selectBill_bottom"><option>单据操作</option></select>
 					<select id="selectTag_bottom"><option>标记单据</option></select>
-					<a id="refresh_bottom" href="#">刷新</a>
-					<a id="exportExcel_bottom" href="#">excel</a>
+					<a id="refresh_bottom" href="#">刷新</a>	
 				</div>
-				<div class="pageNavigate">第一页 下一页 最后一页</div>
+						<span class="highlight"><span class="required">&nbsp;*&nbsp;</span>为必填项目</span>
 			</div>	
 		</div>	
 	</div>
@@ -266,14 +313,8 @@
 			<li id="about"><a href="#"><span>关于</span></a></li>
 		</ul>
 	</div>
-		<!-- 弹出窗口使用的DIV -->
-	<div id="popup" class="span-24">
-		<!-- 运单批量装车界面 -->
-		<ul class="tabs">
-			<li><a href=""><span>新装车单</span></a></li>
-			<li><a href=""><span>查询装车单</span></a></li>
-		</ul>
-	</div>
+	
+
 </div>
 </body>
 </html>
