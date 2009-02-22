@@ -37,10 +37,19 @@
 			font-size : 1.5em;
 			
 		}
+		/*左侧菜单的字体大小*/
+		#menuList
+		{
+			font-size	: 1.2em;
+		}
 		/*内容区标题的字体大小*/
 		h2.title
 		{
 			font-size : 1.2em;
+		}
+		#billList_table table td
+		{
+			height : 1.8em;
 		}
 		
 		/*--layout.css--*/
@@ -53,6 +62,12 @@
 			float : right;
 			padding-right : 5px;
 		}
+		/*左侧菜单的上下间距*/
+		#menuList li
+		{
+			padding : 1px;
+			margin-bottom : 5px;
+		}
 		#footer li
 		{
 			float : left;
@@ -62,16 +77,44 @@
 			float : right;
 			padding-right : 5px;
 		}
-		
+		#billList_table table
+		{
+			border : 1px solid gray;
+		}
+		#billList_table table td
+		{
+			border-bottom : 1px solid gray;
+		}
+		/*操作按钮的样式*/
+		div.btnWrap
+		{
+			float : left;
+		}
+		div.pageNavigate
+		{
+			float : right;
+		}
+		/*上下工具栏的外边框*/
+		#toolbarTop,#toolbarBottom,#billList_table
+		{
+			margin-top : 0;
+			margin-bottom : 0;
+		}
 		
 		/*--color.css--*/
-		#container
+
+		.title
 		{
-			//background-color : #EBEBEB;
+			background-color : #CCE5EB;
 		}
-		#pageHeader
+		/*当前活动菜单*/
+		.active
 		{
-			//background-color : #CCE5EB;
+			background-color : #CCE5EB;
+		}
+		#toolbarTop,#toolbarBottom
+		{
+			background-color : #C3D9FF;
 		}
 		
 		
@@ -84,7 +127,7 @@
 		<div id="company" class="span-18">
 			<div id="companyLogo" class="span-2">
 				公司图标
-				<img />
+				<img src="/a.jpg"/>
 			</div>
 			<h1>
 				<span>XXXX第三方物流有限公司</span>
@@ -102,7 +145,7 @@
 		<hr/>
 	</div>
 	
-	<div id="searchForm" class="span-10 prepend-7 append-7 last">
+	<div id="searchForm" class="span-10 prepend-4 append-10 last">
 		<input id="input_keyword" type='text' />
 		<button id="btnSearch">搜索|其他</button>
 		<button id="btnAdvSearch">高级搜索</button>
@@ -110,12 +153,13 @@
 	<!--高级查询显示的DIV  -->
 	<div id="adv_searchForm" class="span-24"></div>
 	
-	<div id="flash" class="prepend-4 span-20 last">&nbsp</div>
+	<div id="flash" class="prepend-4 span-20 last">&nbsp;</div>
 	
 	<div id="menuList" class="span-4">
 	 	<ul>
 			<li id="dashBoard"><a href="#"><span>业务看板</span></a></li>
-			<li id="carryingBill_list"><a href="#"><span>运单列表</span></a></li>
+			<li id="new_carryingBill"><a href="#"><span>新运单</span></a></li>
+			<li id="carryingBill_list" class="active"><a href="#"><span>运单列表</span></a></li>
 			<li id="loadBill_list"><a href="#"><span>装车单</span></a></li>
 			<li id="returnBill_list"><a href="#"><span>对账单</span></a></li>
 			<li id="payBill_list"><a href="#"><span>货款支付</span></a></li>
@@ -124,18 +168,19 @@
 		</ul>
 	</div>	
 	
-	<div id="content" class="span-20 last">
+	<div id="content" class="span-20  last">
 		<h2 class="title">运单列表</h2>
-		<div id="billList_wrap" class="box">
-			<div id="toolbarTop">
-				<div class="btnWrap span-15">
+		<div id="billList_wrap">
+			<div id="toolbarTop"  class="clearfix box ">
+				<div class="btnWrap">
 					<button id="btnDel_top">删除</button>
 					<select id="selectBill_top"><option>单据操作</option></select>
 					<select id="selectTag_top"><option>标记单据</option></select>
 					<a id="refresh_top" href="#">刷新</a>
+					<a id="exportExcel_top" href="#">excel</a>
 				</div>
-				<div class="pageNavigate span-5 last">第一页 下一页 最后一页</div>
-				<div class="billSelectWrap span-20 last">
+				<div class="pageNavigate">第一页 下一页 最后一页</div>
+				<div class="clear">
 					<span>选择:</span>
 					<span id="selAll_top">全部,</span>
 					<span id="selNone_top">无,</span>
@@ -147,11 +192,11 @@
 				</div>
 			</div>
 			
-			<div id="billList_table" class="span-20 last">
+			<div id="billList_table" class="box clear">
 				<table>
 					<tr>
-						<td><input type="checkbox"/><td>
-						<td><span class="start">星标</span><td>
+						<td><input type="checkbox"/></td>
+						<td><span class="start">星标</span></td>
 						<td><span class="billNo">20090122080001</span></td>
 						<td>
 							<span class="billState">已装车</span>
@@ -165,26 +210,25 @@
 						<td><span class="billDetail">运费:200.00,货款:2000.00,100件,轮胎</span></td>
 						<td><span class="billDate">2009年2月8日</span></td>
 					</tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
-					<tr><td/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
+					<tr><td colspan="20"/></tr>
 				</table>
 			</div>
 			
-			<div id="toolbarBottom">
-				
-				<div class="billSelectWrap span-20 last">
+			<div id="toolbarBottom"  class="box clearfix">
+				<div class="clear">
 					<span>选择:</span>
 					<span id="selAll_bottom">全部,</span>
 					<span id="selNone_bottom">无,</span>
@@ -194,32 +238,26 @@
 					<span id="selArrive_bottom">提付,</span>
 					<span id="selReturn_bottom">回付</span>
 				</div>
-				<div class="btnWrap span-15">
+				<div class="btnWrap">
 					<button id="btnDel_bottom">删除</button>
 					<select id="selectBill_bottom"><option>单据操作</option></select>
 					<select id="selectTag_bottom"><option>标记单据</option></select>
 					<a id="refresh_bottom" href="#">刷新</a>
+					<a id="exportExcel_bottom" href="#">excel</a>
 				</div>
-				<div class="pageNavigate span-5 last">第一页 下一页 最后一页</div>
+				<div class="pageNavigate">第一页 下一页 最后一页</div>
 			</div>	
-			<div class="clear"></div>
 		</div>	
 	</div>
 	<div id="footer" class="span-24">
 		<hr />
 		<ul>
-			<li id="copyRight"><span>copyright 2009<span><a href="#"><span>创艺公司</span></a></li>
+			<li id="copyRight"><span>copyright 2009</span><a href="#"><span>创艺公司</span></a></li>
 			<li id="forum"><a href="#"><span>论坛</span></a></li>
 			<li id="about"><a href="#"><span>关于</span></a></li>
 		</ul>
 	</div>
 </div>
-<div id="extraDiv1"><span></span></div>
-<div id="extraDiv2"><span></span></div>
-<div id="extraDiv3"><span></span></div>
-<div id="extraDiv4"><span></span></div>
-<div id="extraDiv5"><span></span></div>
-<div id="extraDiv6"><span></span></div>
 </body>
 </html>
 
