@@ -30,7 +30,7 @@
 		{
 			width : 	50px;
 			height : 	40px;
-			border : 	1px solid #000000;
+			border : 	1px dotted #000000;
 		}
 		#company h1
 		{
@@ -179,7 +179,12 @@
 			<div  class="clearfix box toolbar">
 				<div class="btnWrap">
 					<button id="btnDel_top">删除</button>
-					<select id="selectBill_top"><option>单据操作</option></select>
+					<select id="selectBill_top">
+						<option>单据操作</option>
+						<option>装车</option>
+						<option>到货确认</option>
+						<option>对账</option>
+					</select>
 					<select id="selectTag_top"><option>标记单据</option></select>
 					<a id="refresh_top" href="#">刷新</a>
 					<a id="exportExcel_top" href="#">excel</a>
@@ -266,14 +271,7 @@
 			<li id="about"><a href="#"><span>关于</span></a></li>
 		</ul>
 	</div>
-		<!-- 弹出窗口使用的DIV -->
-	<div id="popup" class="span-24">
-		<!-- 运单批量装车界面 -->
-		<ul class="tabs">
-			<li><a href=""><span>新装车单</span></a></li>
-			<li><a href=""><span>查询装车单</span></a></li>
-		</ul>
-	</div>
+	
 </div>
 </body>
 </html>
